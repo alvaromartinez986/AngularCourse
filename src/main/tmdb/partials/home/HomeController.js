@@ -23,22 +23,22 @@ define( [ 'angular',
 
         var HomeController = function($scope, TMDBAPIService ) {
 
-            // $scope.view   = {
-            //     movies: [],
-            // };
-
             $scope.view   = {
-                message: ["hola alertlogic"],
+                movies: [],
             };
 
-            // var api = TMDBAPIService.Discover();
-            // api.discover.movies().then(function ( response ) {
-            //     $scope.view.movies = response.data;
-            // });
+            // $scope.view   = {
+            //     message: ["hola alertlogic"],
+            // };
+
+            var api = TMDBAPIService.Discover();
+            api.discover.movies().then(function ( response ) {
+                $scope.view.movies = response.data;
+            });
             
         };
 
-        // HomeController.$inject = [ '$scope', 'TMDBAPIService' ];
+        HomeController.$inject = [ '$scope', 'TMDBAPIService' ];
 
         return HomeController;
     }
